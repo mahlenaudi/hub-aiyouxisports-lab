@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf7f2;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Serif SC', 'Source Han Serif CN', serif;
+      line-height: 1.7;
+      color: #2b2b2b;
+      padding: 2rem 1.2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 800px;
+      width: 100%;
+      background: #fffcf8;
+      padding: 2.8rem 2.2rem;
+      border-radius: 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.02);
+      transition: padding 0.2s;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 450;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25rem;
+      color: #1f2e2b;
+      border-left: 5px solid #b99a7e;
+      padding-left: 1.2rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #7a6b5d;
+      margin-top: -0.2rem;
+      margin-bottom: 2.2rem;
+      padding-left: 1.8rem;
+      font-style: italic;
+    }
+
+    .opening {
+      font-size: 1.2rem;
+      background: #f5efe9;
+      padding: 1.6rem 2rem;
+      border-radius: 40px 12px 40px 12px;
+      margin-bottom: 2.2rem;
+      line-height: 1.8;
+      color: #2f3d39;
+      quotes: "“" "”" "‘" "’";
+      position: relative;
+    }
+
+    .opening::before {
+      content: "“";
+      font-size: 3.4rem;
+      color: #b99a7e;
+      position: absolute;
+      left: 0.6rem;
+      top: -0.2rem;
+      opacity: 0.25;
+      font-family: Georgia, serif;
+    }
+
+    .intro-text {
+      margin-bottom: 2.4rem;
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+
+    .intro-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-list {
+      background: #f8f3ed;
+      padding: 1.6rem 2rem 1.8rem 2rem;
+      border-radius: 20px;
+      margin: 2rem 0 2.6rem 0;
+      border: 1px solid #e7ddd2;
+    }
+
+    .feature-list h2 {
+      font-size: 1.25rem;
+      font-weight: 480;
+      color: #2f4b42;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feature-list h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #dccfc2;
+    }
+
+    .feature-list ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .feature-list li {
+      padding-left: 1.8rem;
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .feature-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #b48b6e;
+      font-weight: 700;
+      font-size: 1.6rem;
+      line-height: 1;
+      top: -0.1rem;
+    }
+
+    .quote-box {
+      background: #ede6dd;
+      padding: 1.4rem 1.8rem;
+      border-radius: 16px;
+      margin: 2.2rem 0 1.8rem 0;
+      border-left: 6px solid #b99a7e;
+      font-size: 1rem;
+      color: #3c3c3c;
+    }
+
+    .quote-box p {
+      margin-bottom: 0.2rem;
+    }
+
+    .quote-box .cite {
+      display: block;
+      text-align: right;
+      font-size: 0.9rem;
+      color: #6b5f54;
+      margin-top: 0.6rem;
+      font-style: normal;
+    }
+
+    .closing {
+      margin-top: 2.6rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid #e5dbd0;
+      font-size: 1rem;
+      color: #3b3b3b;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .closing p {
+      max-width: 70%;
+    }
+
+    .closing a {
+      color: #7a5f48;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #cbb8a6;
+      transition: border 0.2s, color 0.2s;
+    }
+
+    .closing a:hover {
+      border-bottom: 2px solid #7a5f48;
+      color: #4d3729;
+    }
+
+    .faq-mini {
+      margin: 2.2rem 0 0.8rem 0;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      border: 1px solid #ebe2d8;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 480;
+      color: #2f4b42;
+      cursor: pointer;
+      padding: 0.4rem 0;
+      transition: color 0.2s;
+    }
+
+    .faq-mini summary:hover {
+      color: #7a5f48;
+    }
+
+    .faq-mini details p {
+      margin: 0.6rem 0 0.8rem 1.4rem;
+      color: #4f4f4f;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .page {
+        padding: 1.8rem 1.2rem;
+        border-radius: 18px;
+      }
+      h1 {
+        font-size: 1.8rem;
+        padding-left: 0.8rem;
+      }
+      .subhead {
+        font-size: 0.9rem;
+        padding-left: 1rem;
+      }
+      .opening {
+        padding: 1.2rem 1.4rem;
+        font-size: 1.05rem;
+      }
+      .feature-list {
+        padding: 1.2rem 1.2rem 1.4rem 1.2rem;
+      }
+      .closing {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .closing p {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .opening::before {
+        font-size: 2.4rem;
+        top: 0.2rem;
+        left: 0.2rem;
+      }
+      .page {
+        padding: 1.2rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>爱游戏</h1>
+    <div class="subhead">— 一个关于游戏与分享的安静站点</div>
+
+    <div class="opening">
+      有些事情慢慢就定格了，比如周末傍晚打开浏览器，去一个熟悉的地方逛逛。
+    </div>
+
+    <div class="intro-text">
+      <p>最初只是想随手记下几个喜欢的游戏，后来发现同好们也会顺路来看看。于是这个角落慢慢充实起来——没有推送，没有弹窗，只有干净的文字和链接，像是数字世界里一间小小的公共书房。</p>
+      <p><strong>爱游戏</strong> 不是什么宏伟的平台，它更接近一个整洁的笔记本：上面抄着好玩的独立作品、复古宝藏，偶尔也会聊聊关卡设计和配乐。站里的每一页内容都经过确认和筛选，尽可能保证准确和稳定。</p>
+    </div>
+
+    <div class="feature-list">
+      <h2>为什么值得留意这个站点</h2>
+      <ul>
+        <li><strong>内容可靠</strong> —— 收录的游戏信息均来自公开可信来源，并标注了参考和版本，不编造、不夸大。</li>
+        <li><strong>面向玩家</strong> —— 无论你热衷像素风、解谜还是叙事冒险，这里都有一条安静的通道。</li>
+        <li><strong>没有多余装饰</strong> —— 页面简单直接，重点落在文字和链接上，不收集隐私，不塞广告。</li>
+        <li><strong>持续维护</strong> —— 站点会定期更新失效链接，补充新的推荐，偶尔也会修订旧文。</li>
+      </ul>
+    </div>
+
+    <div class="quote-box">
+      <p>“好的游戏介绍就像朋友间的推荐：不过分渲染，也不藏着掖着，把亮点和适合的玩家说清楚就够了。”</p>
+      <span class="cite">—— 来自站点维护笔记</span>
+    </div>
+
+    <p style="margin-bottom: 0.2rem;">除了游戏本身，这里也会偶尔收录一些关于游戏文化、配乐赏析的短文，适合慢慢翻看。</p>
+
+    <div class="faq-mini">
+      <details>
+        <summary>这个站点是谁在维护？</summary>
+        <p>由一位长期关注独立游戏与经典作品的爱好者维护，不隶属于任何公司或发行商。内容完全基于个人兴趣和筛选标准。</p>
+      </details>
+      <details>
+        <summary>信息会更新吗？多久一次？</summary>
+        <p>没有固定频率，但每次有失效链接或新发现时都会及时修订。通常每季度会有一次集中的内容复核。</p>
+      </details>
+      <details>
+        <summary>我可以从这里找到游戏下载吗？</summary>
+        <p>站点只提供介绍和官方链接，不直接提供下载或资源包。所有推荐都指向合法渠道，如 Steam、itch.io 及开发者官网。</p>
+      </details>
+    </div>
+
+    <div class="closing">
+      <p>如果你想找一个安静、可信的游戏介绍站点，不妨从 <a href="https://hub-aiyouxisports.com">爱游戏</a> 开始。那里没有喧嚣，只有用心整理过的内容，以及同样喜欢游戏的人留下的痕迹。</p>
+      <span style="color: #8d7b6a; font-size: 0.9rem; white-space: nowrap;">☕ 慢慢逛</span>
+    </div>
+  </div>
+</body>
+</html>
